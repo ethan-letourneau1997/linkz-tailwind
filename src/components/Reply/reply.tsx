@@ -50,7 +50,10 @@ export const Reply = ({
 
   const dateTime = dateTimePosted; // Example date and time
   return (
-    <Collapsible className="flex gap-3 p-2 max-w-prose" defaultOpen>
+    <Collapsible
+      className={`flex  max-w-prose ${isOpen ? "pt-3" : ""}`}
+      defaultOpen
+    >
       {isOpen && (
         <div className="flex flex-col">
           <Avatar className="w-7 h-7 ">
@@ -62,7 +65,7 @@ export const Reply = ({
             className="flex justify-center flex-1 w-full "
             onClick={closeThread}
           >
-            <CollapsibleTrigger className="flex justify-center w-5 group">
+            <CollapsibleTrigger className="flex justify-center w-3 group">
               <div
                 style={{ width: "1.5px" }}
                 className="mt-3 bg-gray-300 group-hover:bg-gray-900"
@@ -82,7 +85,7 @@ export const Reply = ({
                   onClick={openThread}
                 />
               </CollapsibleTrigger>
-              <Avatar className="w-7 h-7 ">
+              <Avatar className=" w-7 h-7">
                 <AvatarImage
                   src={avatarLink || "https://github.com/shadcn.png"}
                 />
@@ -111,7 +114,11 @@ export const Reply = ({
             <AvatarImage src={avatarLink || "https://github.com/shadcn.png"} />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar> */}
-          <span className="pt-1 text-sm font-semibold text-gray-950">
+          <span
+            className={`pt-1 ${
+              isOpen ? "ml-2" : ""
+            } text-sm font-semibold text-gray-950`}
+          >
             {username}
           </span>
           <span className="pt-1 text-sm font-light text-gray-500">
@@ -133,7 +140,7 @@ export const Reply = ({
               </Button>
             </div>
           </div>
-          <div className="pt-3"> {children}</div>
+          <div className=""> {children}</div>
         </CollapsibleContent>
       </div>
     </Collapsible>
